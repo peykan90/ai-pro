@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d19">
+  <meta name="description" content="PEYKAN AI؛ دستیار هوش مصنوعی رایگان که مدل را در مرورگر شما اجرا می‌کند.">
+  <title>PEYKAN AI | دستیار هوشمند</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <div class="brand-mark"><span>پ</span><i></i></div>
+        <div><div class="brand-name">PEYKAN <b>AI</b></div><div class="brand-caption">دستیار هوشمند شخصی</div></div>
+        <button class="icon-button close-sidebar" id="closeSidebar" aria-label="بستن فهرست">×</button>
+      </div>
+      <button class="new-chat-button" id="newChat"><span class="plus">＋</span> گفتگوی جدید</button>
+      <div class="sidebar-label">گفتگوهای من <span id="chatCount">۰</span></div>
+      <div class="chat-list" id="chatList"></div>
+      <div class="sidebar-bottom">
+        <div class="privacy-card"><div class="privacy-icon">◈</div><div><strong>حریم خصوصی</strong><p>گفتگوها روی همین مرورگر ذخیره می‌شوند.</p></div></div>
+        <button class="settings-link" id="clearAll"><span>⌫</span> پاک‌کردن همهٔ گفتگوها</button>
+        <div class="sidebar-footer">ساخته‌شده با ♥ برای یادگیری و خلاقیت</div>
+      </div>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="openSidebar" aria-label="بازکردن فهرست">☰</button>
+        <div class="topbar-title"><span class="status-dot"></span><span>فضای گفتگوی هوشمند</span></div>
+        <button class="model-pill" id="modelButton"><span class="model-dot"></span><span id="modelStatus">مدل هنوز بارگذاری نشده</span><span class="chevron">⌄</span></button>
+      </header>
+
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome">
+          <div class="planet-wrap"><div class="planet"><div class="planet-glow"></div><div class="planet-ring"></div><div class="planet-shade"></div></div><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span><span class="orbit-point"></span></div>
+          <div class="eyebrow"><span></span> هوش مصنوعی، به زبان تو</div>
+          <h1>سلام، من <em>پیکان</em> هستم.</h1>
+          <p class="welcome-copy">یک ایده داری یا چیزی می‌خوای یاد بگیری؟ از همین‌جا شروع کنیم.</p>
+          <div class="free-note"><span>✦</span> رایگان؛ بدون کلید API و با اجرای مدل در مرورگر</div>
+          <div class="suggestion-grid">
+            <button class="suggestion" data-prompt="پایتون را از صفر و با یک مثال ساده به من آموزش بده."><span class="suggestion-icon purple">⌘</span><span><b>یادگیری برنامه‌نویسی</b><small>از یک مثال ساده شروع کن</small></span><span class="suggestion-arrow">↗</span></button>
+            <button class="suggestion" data-prompt="برای یک سایت فارسی مدرن، سه ایدهٔ خلاقانه پیشنهاد بده."><span class="suggestion-icon blue">✧</span><span><b>ایده‌پردازی</b><small>ایده‌هایت را گسترش بده</small></span><span class="suggestion-arrow">↗</span></button>
+            <button class="suggestion" data-prompt="هوش مصنوعی چطور کار می‌کند؟ ساده و مرحله‌به‌مرحله توضیح بده."><span class="suggestion-icon teal">◉</span><span><b>کشف دنیای هوش مصنوعی</b><small>مفاهیم را ساده یاد بگیر</small></span><span class="suggestion-arrow">↗</span></button>
+            <button class="suggestion" data-prompt="یک برنامهٔ مطالعهٔ روزانهٔ یک‌ساعته برای یادگیری پایتون بنویس."><span class="suggestion-icon orange">▤</span><span><b>برنامه‌ریزی</b><small>یک مسیر قابل انجام بساز</small></span><span class="suggestion-arrow">↗</span></button>
+          </div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+
+      <section class="composer-area">
+        <div class="loading-panel hidden" id="loadingPanel"><div class="loading-heading"><span class="spinner"></span><div><strong id="loadingTitle">در حال آماده‌سازی هوش مصنوعی…</strong><small id="loadingDetail">بار اول ممکن است دانلود مدل زمان ببرد.</small></div><span id="loadPercent">۰٪</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+        <div class="composer">
+          <textarea id="messageInput" rows="1" placeholder="پیامت را برای پیکان بنویس…" aria-label="پیام شما"></textarea>
+          <div class="composer-tools"><div class="composer-hint"><span class="keyboard-key">↵</span> برای ارسال، Enter را بزن</div><button id="sendButton" class="send-button" aria-label="ارسال پیام"><span>↑</span></button></div>
+        </div>
+        <div class="disclaimer">پاسخ‌ها توسط مدل اجراشده در مرورگر تولید می‌شوند و ممکن است اشتباه باشند.</div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-symbol">✦</div><h2>اجرای رایگان هوش مصنوعی</h2><p>برای پاسخ‌گویی، یک مدل هوش مصنوعی در مرورگرت بارگذاری می‌شود. دانلود اولیه ممکن است چندصد مگابایت باشد و به مرورگر سازگار با WebGPU نیاز دارد.</p><ul><li>نیازی به API Key یا حساب پولی نیست.</li><li>گفتگوها در حافظهٔ مرورگر ذخیره می‌شوند.</li><li>بارگذاری مدل ممکن است چند دقیقه طول بکشد.</li></ul><button class="primary-button" id="loadModelButton">بارگذاری مدل رایگان</button><button class="secondary-button" id="modalCancel">فعلاً نه</button></div></div>
+</body>
+</html>
